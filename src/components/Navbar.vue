@@ -1,5 +1,6 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
+import { Languages } from 'lucide-vue-next';
 
 const { locale } = useI18n()
 
@@ -18,10 +19,14 @@ const switchLang = (lang) => {
                 <img src="../assets/logo/logo.svg" alt="Logo" width="140">
             </div>
 
-            <ul class="flex gap-6 text-sm font-medium">
-                <button @click="switchLang('id')">ID</button>
-                <button @click="switchLang('en')">EN</button>
-            </ul>
+            <div class="flex flex-row gap-5">
+                <Languages :size="20" />
+                <ul class="flex gap-3 font-medium">
+                    <button @click="switchLang('id')">ID</button>
+                    <p>|</p>
+                    <button @click="switchLang('en')">EN</button>
+                </ul>
+            </div>
 
         </nav>
     </header>
