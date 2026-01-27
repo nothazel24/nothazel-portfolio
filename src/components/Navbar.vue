@@ -1,3 +1,13 @@
+<script setup>
+import { useI18n } from 'vue-i18n'
+
+const { locale } = useI18n()
+
+const switchLang = (lang) => {
+    locale.value = lang
+}
+</script>
+
 <template>
 
     <header class="bg-transparent top-0 z-50">
@@ -9,7 +19,8 @@
             </div>
 
             <ul class="flex gap-6 text-sm font-medium">
-                <p>ID | EN</p>
+                <button @click="switchLang('id')">ID</button>
+                <button @click="switchLang('en')">EN</button>
             </ul>
 
         </nav>

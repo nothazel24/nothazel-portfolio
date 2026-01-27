@@ -6,6 +6,18 @@ import Project from '../components/Project.vue';
 import TechStack from '../components/TechStack.vue';
 
 import { projects } from '../data/project';
+import { useI18n } from 'vue-i18n';
+import { computed } from 'vue'
+
+const { locale } = useI18n()
+
+const localizedProjects = computed(() =>
+    projects.map(project => ({
+        ...project,
+        title: project.title[locale.value],
+        description: project.description[locale.value]
+    }))
+)
 </script>
 
 <template>
@@ -22,10 +34,10 @@ import { projects } from '../data/project';
 
         <section class="my-project my-12">
             <h2 class="text-2xl">
-                Project yang saya kerjakan
+                {{ $t('tech-stack.title') }}
             </h2>
             <div class="list-project mt-7 flex flex-col gap-2">
-                <Project v-for="project in projects" :key="project.slug" :project-title="project.title"
+                <Project v-for="project in localizedProjects" :key="project.slug" :project-title="project.title"
                     :slug="project.slug" />
             </div>
         </section>

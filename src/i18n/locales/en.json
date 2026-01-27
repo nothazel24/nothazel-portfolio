@@ -1,0 +1,14 @@
+{
+    "about": {
+        "title": "Hi!",
+        "subtitle": "Welcome to my Homepage.",
+        "desc": "I am a beginner backend developer who focuses on developing web systems using PHP and relational database management systems (RDBMS). Currently, I am continuing to learn and deepen my understanding of REST APIs, query optimization, and the basics of algorithms. In addition to developing website systems, I am also quite interested in tinkering with Android, both from the software (system) and hardware sides, simply for exploration and to increase my technical knowledge."
+    },
+    "tech-stack": {
+        "title": "The tech stack i use",
+        "desc": "The tech stack I typically use in developing projects includes <strong class='text-slate-700'>PHP</strong> and <strong class='text-slate-700'>Laravel</strong> for the backend, <strong class='text-slate-700'>MySQL</strong> as the database, and <strong class='text-slate-700'>Livewire</strong>, <strong class='text-slate-700'>Tailwind CSS</strong>, and <strong class='text-slate-700'>JavaScript</strong> for the frontend. I am quite familiar with using these frontend technologies to support feature development, although my main focus remains on the backend and I am still learning to improve my frontend skills."
+    },
+    "common": {
+        "back-to-home": "Back to home"
+    }
+}

@@ -2,21 +2,11 @@
     <!-- heading -->
     <section class="my-tech-stack my-12">
         <h2 class="text-2xl">
-            Tech Stack yang saya gunakan.
+            {{ $t('tech-stack.title') }}
         </h2>
 
         <!-- desc -->
-        <p class="text-justify mt-8">
-            Tech stack yang biasa saya gunakan dalam mengembangkan project meliputi <strong
-                class="text-slate-700">PHP</strong> dan
-            <strong class="text-slate-700">Laravel</strong> untuk backend, <strong class="text-slate-700">MySQL</strong>
-            sebagai database, serta <strong class="text-slate-700">Livewire</strong>, <strong
-                class="text-slate-700">Tailwind CSS</strong>, dan <strong class="text-slate-700">JavaScript</strong>
-            untuk sisi
-            frontend. Saya cukup terbiasa menggunakan teknologi frontend tersebut untuk mendukung pengembangan fitur,
-            meskipun fokus utama saya tetap berada di sisi backend dan saya masih terus belajar untuk meningkatkan
-            kemampuan frontend saya.
-        </p>
+        <p class="text-justify mt-8" v-html="$t('tech-stack.desc')"></p>
 
         <div class="flex flex-row justify-between">
             <div class=""></div>

@@ -1,0 +1,14 @@
+{
+    "about": {
+        "title": "Hai!",
+        "subtitle": "Selamat datang di halaman pribadi saya.",
+        "desc": "Saya adalah backend developer pemula yang fokus mengembangkan sistem web menggunakan PHP, dan database relasional (RDBMS). Saat ini saya terus belajar dan memperdalam pemahaman tentang REST API, optimasi query, dan dasar-dasar algoritma. Selain mengembangkan sistem website, saya juga cukup tertarik untuk mengotak-atik Android, baik dari sisi software (sistem) maupun hardware, sekadar untuk eksplorasi dan menambah wawasan teknis."
+    },
+    "tech-stack": {
+        "title": "Tech stack yang saya gunakan",
+        "desc": "Tech stack yang biasa saya gunakan dalam mengembangkan project meliputi <strong class='text-slate-700'>PHP</strong> dan <strong class='text-slate-700'>Laravel</strong> untuk backend, <strong class='text-slate-700'>MySQL</strong> sebagai database, serta <strong class='text-slate-700'>Livewire</strong>, <strong class='text-slate-700'>Tailwind CSS</strong>, dan <strong class='text-slate-700'>JavaScript</strong> untuk sisi frontend. Saya cukup terbiasa menggunakan teknologi frontend tersebut untuk mendukung pengembangan fitur, meskipun fokus utama saya tetap berada di sisi backend dan saya masih terus belajar untuk meningkatkan kemampuan frontend saya."
+    },
+    "common": {
+        "back-to-home": "Kembali ke beranda"
+    }
+}

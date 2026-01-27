@@ -1,26 +1,50 @@
 export const projects = [
     {
-        slug: 'sip',
-        title: 'Sistem Informasi Penjualan',
-        description: 'Aplikasi manajemen penjualan berbasis web.',
+        slug: 'sistem-informasi-penjualan',
+        title: {
+            id: 'Sistem Informasi Penjualan',
+            en: 'Sales Management System'
+        },
+        description: {
+            id: 'Aplikasi manajemen penjualan berbasis web.',
+            en: 'Web-based sales management application.'
+        },
         imgLink: '/images/default-banner.svg'
     },
     {
         slug: 'qnoite',
-        title: 'Qnoite - Jasa pembuatan website',
-        description: 'Website layanan pembuatan website profesional.',
+        title: {
+            id: 'Qnoite - Jasa pembuatan website',
+            en: 'Qnoite - Website creation service'
+        },
+        description: {
+            id: 'Website layanan pembuatan website profesional.',
+            en: 'Professional website creation service website.'
+        },
         imgLink: '/images/default-banner.svg'
     },
     {
         slug: 'app-masyarakat',
-        title: 'app_masyarakat - Sistem pengaduan masyarakat',
-        description: 'Aplikasi pengaduan masyarakat berbasis Laravel.',
+        title: {
+            id: 'app_masyarakat - Sistem pengaduan masyarakat',
+            en: 'app_masyarakat - Public complaint system'
+        },
+        description: {
+            id: 'Aplikasi pengaduan masyarakat berbasis Laravel.',
+            en: 'A Laravel-based public complaint application.',
+        },
         imgLink: '/images/default-banner.svg'
     },
     {
         slug: 'doublesharp',
-        title: 'DoubleSharp-Ksu_RMX2185',
-        description: 'Kernel Android custom untuk Realme C11 2020.',
+        title: {
+            id: 'DoubleSharp-Ksu_RMX2185',
+            en: 'DoubleSharp-Ksu_RMX2185'
+        },
+        description: {
+            id: 'Kernel Android custom untuk Realme C11 2020.',
+            en: 'Custom Android kernel for Realme C11 2020.'
+        },
         imgLink: '/images/default-banner.svg'
     },
 ]
