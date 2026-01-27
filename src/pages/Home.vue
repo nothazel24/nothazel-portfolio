@@ -13,7 +13,7 @@ import { projects } from '../data/project';
     <div class="bg-orange w-full py-1"></div>
     <Navbar />
 
-    <div class="body-wrapper container mx-auto px-48">
+    <div class="body-wrapper container mx-auto px-10 md:px-48">
         <About />
         <hr class="border-t border-slate-950/40">
 

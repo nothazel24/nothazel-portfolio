@@ -16,7 +16,8 @@
 
         <!-- about -->
         <div class="about">
-            <p class="text-justify mt-8">Saya adalah backend developer pemula yang fokus mengembangkan sistem web
+            <p class="text-justify mt-8">
+                Saya adalah backend developer pemula yang fokus mengembangkan sistem web
                 menggunakan
                 PHP, dan database
                 relasional (RDBMS). Saat ini saya terus belajar dan memperdalam pemahaman tentang REST API, optimasi
