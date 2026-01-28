@@ -34,7 +34,7 @@ const localizedProjects = computed(() =>
 
         <section class="my-project my-12">
             <h2 class="text-2xl">
-                {{ $t('tech-stack.title') }}
+                {{ $t('project.title') }}
             </h2>
             <div class="list-project mt-7 flex flex-col gap-2">
                 <Project v-for="project in localizedProjects" :key="project.slug" :project-title="project.title"

@@ -6,7 +6,7 @@ import { Instagram } from 'lucide-vue-next';
 <template>
     <footer class="container mx-auto px-10 md:px-48 my-12">
         <div class="flex flex-row justify-between w-full">
-            <p class="opacity-70">&copy; 2026 Ryan ferdiansyah (nothazel24)</p>
+            <p class="opacity-70">&copy; 2026 Ryan ferdiansyah</p>
 
             <div class="flex flex-row gap-5 items-center">
                 <a href="https://github.com/nothazel24">
