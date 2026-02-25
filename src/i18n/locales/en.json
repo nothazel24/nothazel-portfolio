@@ -12,6 +12,7 @@
         "title": "The project i am working on"
     },
     "common": {
-        "back-to-home": "Back to home"
+        "back-to-home": "Back to home",
+        "project-not-found": "Project not found"
     }
 }

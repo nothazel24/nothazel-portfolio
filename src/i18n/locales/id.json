@@ -12,6 +12,7 @@
         "title": "Project yang saya kerjakan"
     },
     "common": {
-        "back-to-home": "Kembali ke beranda"
+        "back-to-home": "Kembali ke beranda",
+        "project-not-found": "Proyek tidak dapat ditemukan"
     }
 }
