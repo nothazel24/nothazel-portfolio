@@ -13,20 +13,13 @@ const route = useRoute()
 const { locale } = useI18n()
 
 const project = ref(null)
-
-/*
-
-    TASK
-    DISINI PROSES FETCHING MASIH DELAY (LAMA)
-    COBA NANTI DI IMPROVE PERFORMANCENYA, AGAR BROWSER TIDAK MENAMPILKAN "PROJECT TIDAK DAPAT DITEMUKAN"
-    TERLEBIH DAHULU.
-
-    (INI BERLAKU UNTUK ProjectDetail.vue & Home.vue)
-
-*/
+const loading = ref(true)
 
 // fetching data dari supabase
 const fetchProject = async () => {
+    loading.value = true
+    project.value = null // reset state sebelum fetching
+
     const { data, error } = await supabase
         .from('project_translations')
         .select(`
@@ -51,9 +44,12 @@ const fetchProject = async () => {
 
     if (error) {
         console.log(error)
+        project.value = null
     } else {
         project.value = data
     }
+
+    loading.value = false
 
     // console.log(data)
     // console.log(error)
@@ -70,26 +66,22 @@ watch(locale, fetchProject)
     <div class="bg-orange w-full py-1"></div>
     <Navbar />
 
-    <section v-if="project" class="project-detail my-12">
-        <div class="body-wrapper container mx-auto px-10 md:px-48">
+    <div class="body-wrapper container mx-auto px-10 md:px-48">
 
-            <RouterLink to="/" class="my-9 flex items-center gap-3">
-                <CircleArrowLeft color="#F26419" :size="25" />
-                <p class="text-sm text-orange hover:underline">
-                    {{ $t('common.back-to-home') }}
-                </p>
-            </RouterLink>
+        <RouterLink to="/" class="my-9 flex items-center gap-3">
+            <CircleArrowLeft color="#F26419" :size="25" />
+            <p class="text-sm text-orange hover:underline">
+                {{ $t('common.back-to-home') }}
+            </p>
+        </RouterLink>
 
-            <!-- 
-            
-            TASK:
-            MASIH ADA BUG DI BAGIAN SINI, YAITU SAAT LOCALE DI SET KE SALAH SATU BAHASA YANG TIDAK TERSEDIA TRANSLASINYA DI SUPABASE, HARUSNYA TIDAK ADA DATA YANG DITAMPILKAN (SEPERTI YANG ADA DI HOMEPAGE). 
+        <section v-if="loading" class=" my-20">
+            <p class="bg-orange text-zinc-50 px-4 w-2/4">
+                Loading...
+            </p>
+        </section>
 
-            AKAN TETAPI, DISINI DATANYA MASIH MENYEDIAKAN DATA YANG ADA DI SUPABASE, TIDAK PEDULI TRANSLASI YANG DIPILIHNYA ADA ATAU TIDAK
-
-            NANTI COBA PERBAIKI, DAN IMPROVE DIKIT (KASIH KETERANGAN BAHWA DATA YANG DICARI TIDAK ADA TRANSLASINYA.)
-            
-            -->
+        <section v-else-if="project" class="project-detail my-12">
 
             <img :src="project.projects.thumbnail" alt="project-banner" class="w-full mb-8 rounded-md">
 
@@ -101,17 +93,15 @@ watch(locale, fetchProject)
             <p class="mt-9">
                 {{ project.description }}
             </p>
+        </section>
 
-            <!-- PEMBATAS TUGAS -->
+        <section v-else class=" my-20">
+            <p class="bg-orange text-zinc-50 px-4 w-2/4">
+                {{ $t('common.project-not-found') }}
+            </p>
+        </section>
 
-        </div>
-    </section>
-
-    <section v-else class="container mx-auto px-10 md:px-48 my-20">
-        <p class="bg-orange text-zinc-50 px-4 w-2/4">
-            {{ $t('common.project-not-found') }}
-        </p>
-    </section>
+    </div>
 
     <Footer />
 </template>
