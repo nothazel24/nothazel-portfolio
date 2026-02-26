@@ -5,19 +5,45 @@ import Navbar from '../components/Navbar.vue';
 import Project from '../components/Project.vue';
 import TechStack from '../components/TechStack.vue';
 
-import { projects } from '../data/project';
-import { useI18n } from 'vue-i18n';
-import { computed } from 'vue'
+// fetch data (from supabase)
+import { supabase } from '../lib/supabase'
+import { ref, onMounted, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 
+// define data variables
+const projects = ref([])
 const { locale } = useI18n()
 
-const localizedProjects = computed(() =>
-    projects.map(project => ({
-        ...project,
-        title: project.title[locale.value],
-        description: project.description[locale.value]
-    }))
-)
+// fetching data project dari supabase
+const fetchProjects = async () => {
+    const { data, error } = await supabase
+        .from('project_translations')
+        .select(`
+                project_name,
+                subtitle,
+                description,
+                locale,
+                projects (
+                    slug
+                )
+            `)
+        .eq('locale', locale.value)
+
+    if (error) {
+        console.log(error)
+    } else {
+        projects.value = data
+    }
+
+    // console.log(data)
+    // console.log(error)
+}
+
+// mount data
+onMounted(fetchProjects)
+
+// saat ganti bahasa, langsung re-fetching data 
+watch(locale, fetchProjects)
 </script>
 
 <template>
@@ -36,10 +62,15 @@ const localizedProjects = computed(() =>
             <h2 class="text-2xl">
                 {{ $t('project.title') }}
             </h2>
+
+            <!-- List project section -->
             <div class="list-project mt-7 flex flex-col gap-2">
-                <Project v-for="project in localizedProjects" :key="project.slug" :project-title="project.title"
-                    :slug="project.slug" />
+
+                <!-- Ambil data dari hasil fetch js dari supabase -->
+                <Project v-for="project in projects" :key="project.projects.slug" :project-title="project.project_name"
+                    :slug="project.projects.slug" :thumbnail="project.projects.thumbnail" />
             </div>
+
         </section>
 
         <hr class="border-t border-slate-950/40">
